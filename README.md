@@ -27,7 +27,6 @@ Users should be able to:
 
 ![](./public/images/screenshot.png)
 
-
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
@@ -45,11 +44,9 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
 
-
 ### What I learned
 
 Fectching API data and updating state
-
 
 ## Author
 
