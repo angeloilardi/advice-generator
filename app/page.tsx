@@ -67,6 +67,7 @@ export default function Home() {
           className="w-[60px] h-[60px] bg-neon-green rounded-full flex justify-center items-center absolute -bottom-8 hover:shadow-[2px_2px_24px_1px_hsl(150,100%,66%)]"
           onClick={getAdvice}
         >
+          <span className="sr-only">Roll the dice</span>
           <Image src="/images/icon-dice.svg" alt="" width={24} height={24} />
         </button>
       </div>
