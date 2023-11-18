@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import Spinner from '@/components/Spinner';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Spinner from "@/components/Spinner";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface AdviceData {
   id: number;
@@ -10,8 +10,11 @@ interface AdviceData {
 }
 
 export default function Home() {
+  // state variables
 
-  const [advice, setAdvice] = useState<AdviceData | null>(null)
+  const [advice, setAdvice] = useState<AdviceData | null>(null);
+
+  // function that fetches the advice
 
   async function getAdvice() {
     const res = await fetch("https://api.adviceslip.com/advice");
@@ -21,14 +24,15 @@ export default function Home() {
     }
 
     const data = await res.json();
-    
-    setAdvice(data.slip)
+
+    setAdvice(data.slip);
   }
 
-  useEffect(() => {
-    getAdvice()
-  }, []);
+  // fetches new advice at loading
 
+  useEffect(() => {
+    getAdvice();
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-dark-blue">
@@ -46,12 +50,19 @@ export default function Home() {
               width={295}
               height={16}
               alt=""
-              className="p-5 mb-9"
+              className="p-5 mb-9 md:hidden"
+            />
+            <Image
+              src="/images/pattern-divider-desktop.svg"
+              width={444}
+              height={16}
+              alt=""
+              className="p-5 mb-9 hidden md:block"
             />
           </>
-        ) : 
-         <Spinner />
-        }
+        ) : (
+          <Spinner />
+        )}
         <button
           className="w-[60px] h-[60px] bg-neon-green rounded-full flex justify-center items-center absolute -bottom-8 hover:shadow-[2px_2px_24px_1px_hsl(150,100%,66%)]"
           onClick={getAdvice}
@@ -61,5 +72,4 @@ export default function Home() {
       </div>
     </main>
   );
-  
 }
